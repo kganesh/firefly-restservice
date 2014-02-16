@@ -42,6 +42,11 @@
 			<version>${jackson.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.tritle.firefly</groupId>
+			<artifactId>firefly-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

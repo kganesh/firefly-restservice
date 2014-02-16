@@ -7,21 +7,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tritl.firefly.model.Doctor;
 
 @Controller
-@RequestMapping("/pcps")
-public class PCPController {
+@RequestMapping("/hcprecommend")
+public class HCPRecommendController {
 
-	@RequestMapping(value = "{name}", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody
-	List<Doctor> getShopInJSON(@PathVariable String name) {
+	List<Doctor> getShopInJSON(@RequestParam(value = "dob") String dob,
+			@RequestParam(value = "zip") String zip,
+			@RequestParam(value = "provider") String provider,
+			@RequestParam(value = "diseases") String[] diseases) {
 
-	List<Doctor> pcps = new ArrayList<Doctor>();
-	
-	return pcps;
+		
+
+		return null;
 
 	}
 
