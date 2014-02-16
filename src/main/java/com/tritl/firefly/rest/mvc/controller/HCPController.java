@@ -16,7 +16,6 @@ import com.tritl.firefly.model.InsuranceProvider;
 import com.tritl.firefly.service.FireflyDataServices;
 
 @Controller
-@RequestMapping("/hcproviders")
 public class HCPController {
 
 	private FireflyDataServices fireflyDataService;
@@ -26,7 +25,7 @@ public class HCPController {
 		this.fireflyDataService = fireflyDataService;
 	}
 
-	@RequestMapping(value = "{zip}", method = RequestMethod.GET)
+	@RequestMapping(value = "/hcproviders/{zip}", method = RequestMethod.GET)
 	public @ResponseBody
 	List<InsuranceProvider> getHCProviders(@PathVariable String zip) {
 
@@ -41,7 +40,7 @@ public class HCPController {
 
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/diseases", method = RequestMethod.GET)
 	public @ResponseBody
 	List<Diseases> getDisease() {
 
@@ -56,7 +55,7 @@ public class HCPController {
 
 	}
 	
-	@RequestMapping(value = "/{zip}/{provider}", method = RequestMethod.GET)
+	@RequestMapping(value = "/pcps/{zip}/{provider}", method = RequestMethod.GET)
 	public @ResponseBody
 	List<Doctor> getDoctors(@PathVariable String zip,@PathVariable String provider) {
 

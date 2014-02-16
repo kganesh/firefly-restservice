@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tritl.firefly.model.Doctor;
 import com.tritl.firefly.model.InsuranceProvider;
+import com.tritl.firefly.model.Plan;
 import com.tritl.firefly.service.FireflyDataServices;
 
 @Controller
-@RequestMapping("/hcprecommend")
 public class HCPRecommendController {
 	
 	private FireflyDataServices fireflyDataService;
@@ -26,7 +26,7 @@ public class HCPRecommendController {
 		this.fireflyDataService = fireflyDataService;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/hcprecommend",method = RequestMethod.POST)
 	public @ResponseBody
 	List<InsuranceProvider> getHCPRecommendList(@RequestParam(value = "dob") String dob,
 			@RequestParam(value = "zip") String zip,
@@ -37,5 +37,17 @@ public class HCPRecommendController {
 		return fireflyDataService.getHCPRecommendList(dob, zip, provider, diseases);
 		
 	}
+	
+	@RequestMapping(value="/hcplan",method = RequestMethod.POST)
+	public @ResponseBody
+	Plan getHCPPlan(@RequestParam(value = "dob") int providerId,
+			@RequestParam(value = "planId") int planId) {
+
+		
+		return fireflyDataService.getHCPlanDetails(providerId, planId);
+		
+	}
+	
+	
 
 }
